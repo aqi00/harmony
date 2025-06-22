@@ -1,0 +1,23 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/EventBackPage",
+    "pages/NavigationTopPage",
+    "pages/NavigationBottomPage",
+    "pages/EventTouchPage",
+    "pages/Canvas2DDrawPage",
+    "pages/CanvasSignaturePage",
+    "pages/GestureTapPage",
+    "pages/GestureLongPage",
+    "pages/GesturePanPage",
+    "pages/GestureSwipePage",
+    "pages/GesturePinchPage",
+    "pages/GestureRotatePage",
+    "pages/PullDownRefreshPage",
+    "pages/PullUpLoadingPage",
+    "photo/ElectronicAlbumPage",
+    "photo/PhotoDetailPage",
+    "photo/PhotoListPage",
+    "photo/PhotoPreviewPage"
+  ]
+}

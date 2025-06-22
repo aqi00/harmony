@@ -1,0 +1,17 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/VibratorPage",
+    "pages/CalendarCreatePage",
+    "pages/EventAddPage",
+    "pages/EventEditPage",
+    "pages/NotificationSimplePage",
+    "pages/NotificationJumpPage",
+    "pages/NotificationChannelPage",
+    "pages/DelayIntervalPage",
+    "pages/NotificationReminderPage",
+    "pages/ShortTaskPage",
+    "pages/LongTaskPage",
+    "pages/RecorderPenPage"
+  ]
+}

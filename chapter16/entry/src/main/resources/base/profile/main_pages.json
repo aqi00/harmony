@@ -1,0 +1,8 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/DeviceInfoPage",
+    "pages/ShowModePage",
+    "pages/MultiLanguagePage"
+  ]
+}

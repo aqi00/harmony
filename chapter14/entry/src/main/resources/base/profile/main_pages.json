@@ -1,0 +1,20 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/SensorListPage",
+    "pages/SensorAccelertePage",
+    "pages/SensorMagneticPage",
+    "pages/SensorLightPage",
+    "pages/SensorBarometerPage",
+    "pages/SensorStepPage",
+    "pages/SensorDirectionPage",
+    "pages/LocationAddressPage",
+    "pages/LocationSatellitePage",
+    "pages/MapBasicPage",
+    "pages/MapSearchPage",
+    "pages/MapNavigationPage",
+    "nearby/ChooseLocationPage",
+    "nearby/InfoEditPage",
+    "nearby/NearbyPage"
+  ]
+}

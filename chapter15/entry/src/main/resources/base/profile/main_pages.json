@@ -1,0 +1,17 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/VoiceTTSPage",
+    "pages/VoiceASRPage",
+    "pages/TextReaderPage",
+    "pages/IntellectCaptionPage",
+    "pages/BarcodeScanPage",
+    "pages/BarcodeCreatePage",
+    "pages/TextRecognizePage",
+    "pages/DocScannerPage",
+    "pages/ImageClassifyPage",
+    "pages/FaceDetectPage",
+    "pages/FaceComparePage",
+    "pages/LivenessDetectPage"
+  ]
+}

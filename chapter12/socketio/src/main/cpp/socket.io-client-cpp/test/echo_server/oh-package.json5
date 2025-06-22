@@ -1,0 +1,9 @@
+{
+  "author": "Melo Yao",
+  "name": "echo_server",
+  "description": "",
+  "version": "0.0.0",
+  "dependencies": {
+    "socket.io": "^3.0.5"
+  }
+}

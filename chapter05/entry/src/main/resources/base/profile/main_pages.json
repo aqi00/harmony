@@ -1,0 +1,21 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/GoLoginPage",
+    "pages/GoRegisterPage",
+    "pages/GoNextPage",
+    "pages/JumpFirstPage",
+    "pages/JumpSecondPage",
+    "pages/SimpleRequestPage",
+    "pages/SimpleResponsePage",
+    "pages/ParamRequestPage",
+    "pages/ParamResponsePage",
+    "pages/EventSendPage",
+    "pages/EventReceivePage",
+    "pages/EmitterSendPage",
+    "pages/EmitterReceivePage",
+    "pages/WantExplicitPage",
+    "pages/WantImplicitPage",
+    "pages/WantSpecialPage"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet",
+      "2in1"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ],
+    "extensionAbilities": [
+      {
+        "name": "EntryBackupAbility",
+        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+        "type": "backup",
+        "exported": false,
+        "metadata": [
+          {
+            "name": "ohos.extension.backup",
+            "resource": "$profile:backup_config"
+          }
+        ],
+      }
+    ],
+    "metadata": [
+      {
+        "name": "client_id",
+        "value": "6917567085656390245"  //配置为获取的Client ID
+      }
+    ],
+    "requestPermissions":[
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name" : "ohos.permission.ACCELEROMETER", // 加速计权限
+      },
+      {
+        "name" : "ohos.permission.ACTIVITY_MOTION", // 运动权限
+        "reason": "$string:step_motion_reason",
+        "usedScene": {
+          "when":"inuse"
+        }
+      },
+      {
+        "name" : "ohos.permission.GYROSCOPE", // 陀螺仪权限
+      },
+      {
+        "name" : "ohos.permission.LOCATION",
+        "reason": "$string:accurate_location_reason",
+        "usedScene": {
+          "when":"inuse"
+        }
+      },
+      {
+        "name" : "ohos.permission.APPROXIMATELY_LOCATION",
+        "reason": "$string:vague_location_reason",
+        "usedScene": {
+          "when":"inuse"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/TextViewPage",
+    "pages/TextColorPage",
+    "pages/TextSizePage",
+    "pages/TextFontPage",
+    "pages/ViewSizePage",
+    "pages/ViewMarginPage",
+    "pages/ViewGravityPage",
+    "pages/ViewWeightPage",
+    "pages/LayoutFlexPage",
+    "pages/LayoutStackPage",
+    "pages/LayoutRelativePage",
+    "pages/ButtonTypePage",
+    "pages/ButtonClickPage",
+    "pages/ButtonStatePage",
+    "pages/LayoutScrollPage",
+    "pages/TextGravityPage",
+    "pages/CalculatorPage"
+  ]
+}

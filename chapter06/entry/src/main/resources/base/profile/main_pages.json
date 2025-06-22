@@ -1,0 +1,24 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/ImageViewPage",
+    "pages/ImageResizablePage",
+    "pages/ImageSimplePage",
+    "pages/ImageShapePage",
+    "pages/ImageSpanPage",
+    "pages/ChooseCheckboxPage",
+    "pages/ChooseTooglePage",
+    "pages/ChooseRadioPage",
+    "pages/TextInputPage",
+    "pages/TextAreaPage",
+    "pages/TextBindPage",
+    "pages/PickerTextPage",
+    "pages/PickerDatePage",
+    "pages/PickerCalendarPage",
+    "pages/PickerTimePage",
+    "pages/TextSearchPage",
+    "pages/PickerCustomPage",
+    "pages/LoginMainPage",
+    "pages/LoginForgetPage"
+  ]
+}

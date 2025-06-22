@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "axios",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

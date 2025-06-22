@@ -1,0 +1,21 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/JsonConvertPage",
+    "pages/HttpGetPage",
+    "pages/HttpPostPage",
+    "pages/HttpDownloadPage",
+    "pages/HttpUploadPage",
+    "pages/HttpImagePage",
+    "pages/WebSocketPage",
+    "pages/SocketioTextPage",
+    "pages/SocketioImagePage",
+    "pages/WebLocalPage",
+    "pages/WebRemotePage",
+    "pages/WebScriptPage",
+    "chat/WeLoginPage",
+    "chat/WeChatPage",
+    "chat/GroupChatPage",
+    "chat/FriendChatPage"
+  ]
+}

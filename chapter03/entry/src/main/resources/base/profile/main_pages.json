@@ -1,0 +1,14 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/TypeBasePage",
+    "pages/TypeArrayPage",
+    "pages/TypeClassPage",
+    "pages/ControlBranchPage",
+    "pages/ControlLoopPage",
+    "pages/ControlFunctionPage",
+    "pages/TypeInterfacePage",
+    "pages/QuoteOtherPage",
+    "pages/TestPage"
+  ]
+}

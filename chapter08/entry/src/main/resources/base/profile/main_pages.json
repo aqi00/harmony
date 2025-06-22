@@ -1,0 +1,20 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/ListDownPage",
+    "pages/ListVerticalPage",
+    "pages/ListComplexPage",
+    "pages/ListHorizontalPage",
+    "pages/GridRegularPage",
+    "pages/GridIrregularPage",
+    "pages/WaterFlowPage",
+    "pages/SwiperHorizontalPage",
+    "pages/SwiperVerticalPage",
+    "pages/SwiperDotPage",
+    "pages/SwiperDigitPage",
+    "pages/TabsCustomPage",
+    "pages/TabsBottomPage",
+    "pages/TabsSimplePage",
+    "business/DepartmentStorePage"
+  ]
+}

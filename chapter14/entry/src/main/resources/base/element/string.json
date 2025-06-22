@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "chapter14"
+    },
+    {
+      "name": "accurate_location_reason",
+      "value": "精确定位"
+    },
+    {
+      "name": "vague_location_reason",
+      "value": "模糊定位"
+    },
+    {
+      "name": "step_motion_reason",
+      "value": "计步器"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/CameraPhotoPage",
+    "pages/CameraInfoPage",
+    "pages/CameraRecordPage",
+    "pages/VideoPickerPage",
+    "pages/ImageInfoPage",
+    "pages/AudioRecordPage",
+    "pages/AudioPlayPage",
+    "pages/VideoInfoPage",
+    "short/ShortVideoPage",
+    "short/ShortCoverPage",
+    "short/ShortEditPage",
+    "short/ShortTakePage",
+    "pages/AudioChoosePage"
+  ]
+}

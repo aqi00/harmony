@@ -1,0 +1,14 @@
+{
+  "routerMap": [
+    {
+      "name": "pageNavigationTwo",
+      "pageSourceFile": "src/main/ets/pages/NavigationTwoPage.ets",
+      "buildFunction": "NavigationTwoBuilder"
+    },
+    {
+      "name": "pageNavigationThree",
+      "pageSourceFile": "src/main/ets/pages/NavigationThreePage.ets",
+      "buildFunction": "NavigationThreeBuilder"
+    }
+  ]
+}

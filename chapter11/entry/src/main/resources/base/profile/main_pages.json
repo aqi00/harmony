@@ -1,0 +1,17 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/FrameAnimationPage",
+    "pages/KeyFrameAnimationPage",
+    "pages/GifAnimationPage",
+    "pages/FadeAnimationPage",
+    "pages/AttributeAnimationPage",
+    "pages/ObviousAnimationPage",
+    "pages/TransitionPageOnePage",
+    "pages/TransitionWidgetPage",
+    "pages/TransitionSharedOnePage",
+    "pages/TransitionPageTwoPage",
+    "pages/TransitionSharedTwoPage",
+    "pages/PlayCardPage"
+  ]
+}
