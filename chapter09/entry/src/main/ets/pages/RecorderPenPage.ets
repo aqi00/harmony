@@ -118,7 +118,7 @@ struct RecorderPenPage {
       // 点击通知后，将要执行的动作列表。添加需要被拉起应用的bundleName和abilityName
       wants: [{
           bundleName: context.abilityInfo.bundleName, // 包名
-          abilityName: 'Chapter08Ability', // Ability名称
+          abilityName: 'EntryAbility', // Ability名称
         }],
       // 点击通知后的动作类型
       actionType: wantAgent.OperationType.START_ABILITY,

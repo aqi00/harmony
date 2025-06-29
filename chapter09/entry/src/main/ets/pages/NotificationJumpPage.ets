@@ -29,7 +29,7 @@ struct NotificationJumpPage {
     let wantAgentInfo: wantAgent.WantAgentInfo = {
       wants: [{
           bundleName: context.abilityInfo.bundleName, // 包名
-          abilityName: 'Chapter08Ability', // Ability名称
+          abilityName: 'EntryAbility', // Ability名称
         }],
       // 点击通知后的动作类型
       actionType: wantAgent.OperationType.START_ABILITY,
