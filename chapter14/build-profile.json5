@@ -23,20 +23,20 @@
       }
     ],
     "signingConfigs": [
-//      // 使用mate60pro调试证书
-//      {
-//        "name": "default",
-//        "type": "HarmonyOS",
-//        "material": {
-//          "storeFile": "E:/DevEcoStudioProjects/HarmonyApp/test.p12",
-//          "storePassword": "000000183B0AAEB26F2C99908068303D2D2ADAE60C0F2BC92E31C6DA86C931D936911220F4AB83E3",
-//          "keyAlias": "test",
-//          "keyPassword": "00000018D1E65DF3C0A539F48B5817752B63721BBE94785DB15D60AE6C71AB0A1D2D03FE299680F0",
-//          "signAlg": "SHA256withECDSA",
-//          "profile": "E:/DevEcoStudioProjects/HarmonyApp/testDebug.p7b",
-//          "certpath": "E:/DevEcoStudioProjects/HarmonyApp/test.cer"
-//        }
-//      }
+      // 使用mate60pro调试证书
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "E:/DevEcoStudioProjects/HarmonyApp/test.p12",
+          "storePassword": "000000183B0AAEB26F2C99908068303D2D2ADAE60C0F2BC92E31C6DA86C931D936911220F4AB83E3",
+          "keyAlias": "test",
+          "keyPassword": "00000018D1E65DF3C0A539F48B5817752B63721BBE94785DB15D60AE6C71AB0A1D2D03FE299680F0",
+          "signAlg": "SHA256withECDSA",
+          "profile": "E:/DevEcoStudioProjects/HarmonyApp/testDebug.p7b",
+          "certpath": "E:/DevEcoStudioProjects/HarmonyApp/test.cer"
+        }
+      }
     ]
   },
   "modules": [
