@@ -8,6 +8,7 @@
     "pages/SensorBarometerPage",
     "pages/SensorStepPage",
     "pages/SensorDirectionPage",
+    "pages/SensorOrientationPage",
     "pages/LocationAddressPage",
     "pages/LocationSatellitePage",
     "pages/MapBasicPage",

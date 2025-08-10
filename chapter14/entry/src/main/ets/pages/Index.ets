@@ -50,9 +50,13 @@ struct Index {
           .onClick(() => {
             this.router.pushUrl({ url: 'pages/SensorStepPage' })
           })
-        Button('方向传感器-水平仪').fontSize(16).layoutWeight(1)
+        Button('水平仪1').fontSize(16).layoutWeight(1)
           .onClick(() => {
             this.router.pushUrl({ url: 'pages/SensorDirectionPage' })
+          })
+        Button('水平仪2').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'pages/SensorOrientationPage' })
           })
       }.padding({top: 3, bottom: 3})
 
