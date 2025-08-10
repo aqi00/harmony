@@ -4,7 +4,7 @@ import { emitter } from '@kit.BasicServicesKit';
 @Entry
 @Component
 struct EmitterSendPage {
-  router = this.getUIContext().getRouter();
+  router = this.getUIContext().getRouter(); // 获取当前页面的router实例
   @State TAG: string = 'EmitterSendPage';
   @State message: string = '你吃饭了吗？来我家吃吧';
 

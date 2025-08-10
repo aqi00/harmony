@@ -3,7 +3,7 @@ import { router } from '@kit.ArkUI';
 @Entry
 @Component
 struct JumpSecondPage {
-  router = this.getUIContext().getRouter();
+  router = this.getUIContext().getRouter(); // 获取当前页面的router实例
   @State TAG: string = 'JumpSecondPage'; // 日志标记
 
   aboutToAppear() {

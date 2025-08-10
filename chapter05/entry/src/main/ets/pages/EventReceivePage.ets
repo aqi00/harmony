@@ -3,8 +3,8 @@ import { router } from '@kit.ArkUI';
 @Entry
 @Component
 struct EventReceivePage {
-  router = this.getUIContext().getRouter();
-  context = this.getUIContext().getHostContext();
+  router = this.getUIContext().getRouter(); // 获取当前页面的router实例
+  context = this.getUIContext().getHostContext(); // 获取当前页面的context实例
   @State TAG: string = 'EventReceivePage';
   @State message: string = ''; // 请求消息
 

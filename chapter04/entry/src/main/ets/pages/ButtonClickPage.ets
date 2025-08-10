@@ -3,7 +3,7 @@ import { promptAction } from '@kit.ArkUI';
 @Entry
 @Component
 struct ButtonClickPage {
-  promptAction = this.getUIContext().getPromptAction();
+  promptAction = this.getUIContext().getPromptAction(); // 获取当前页面的promptAction实例
 
   build() {
       Column() {

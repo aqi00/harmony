@@ -1,6 +1,6 @@
 @Entry
 @Component
-struct StackPage {
+struct LayoutStackPage {
 
   build() {
     // Stack的子节点默认在水平方向和垂直方向都居中

@@ -3,7 +3,7 @@ import { router } from '@kit.ArkUI';
 @Entry
 @Component
 struct GoRegisterPage {
-  router = this.getUIContext().getRouter();
+  router = this.getUIContext().getRouter(); // 获取当前页面的router实例
   @State TAG: string = 'GoRegisterPage';
 
   aboutToAppear() {

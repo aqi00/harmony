@@ -1,6 +1,6 @@
 @Entry
 @Component
-struct RelativePage {
+struct LayoutRelativePage {
 
   build() {
     RelativeContainer() {

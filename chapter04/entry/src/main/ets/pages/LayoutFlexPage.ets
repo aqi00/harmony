@@ -1,6 +1,6 @@
 @Entry
 @Component
-struct FlexPage {
+struct LayoutFlexPage {
 
   build() {
     Column() {
