@@ -1,6 +1,4 @@
-import { router } from '@kit.ArkUI';
 import { cameraPicker, camera } from '@kit.CameraKit'
-import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
@@ -13,20 +11,18 @@ struct ShortTakePage {
 
   // 唤起相机录像
   startCameraPicker() {
-    try {
-      let pickerProfile: cameraPicker.PickerProfile = {
-        cameraPosition: camera.CameraPosition.CAMERA_POSITION_BACK, // 后置摄像头
-        videoDuration: 15 // 录制的最大时长，单位秒
-      };
-      // 只处理录像
-      cameraPicker.pick(this.context, [cameraPicker.PickerMediaType.VIDEO], pickerProfile).then((pickerResult) => {
-        console.info('the pick pickerResult is:' + JSON.stringify(pickerResult));
-        this.videoPath = pickerResult.resultUri
-      })
-    } catch (error) {
-      let err = error as BusinessError;
-      console.error(`the pick call failed. error code: ${err.code}, error msg: ${err.message}`);
-    }
+    let pickerProfile: cameraPicker.PickerProfile = {
+      cameraPosition: camera.CameraPosition.CAMERA_POSITION_BACK, // 后置摄像头
+      videoDuration: 15 // 录制的最大时长，单位秒
+    };
+    // 只处理录像
+    cameraPicker.pick(this.context, [cameraPicker.PickerMediaType.VIDEO], pickerProfile)
+      .then((pickerResult) => {
+      console.info('the pick pickerResult is:' + JSON.stringify(pickerResult));
+      this.videoPath = pickerResult.resultUri // 拍摄的视频路径
+      }).catch((err: BusinessError) => {
+      console.error('cameraPicker.pick failed with err: ' + JSON.stringify(err));
+    });
   }
 
   // 选择相册视频
@@ -38,7 +34,7 @@ struct ShortTakePage {
     photoPicker.select(photoSelectOptions)
       .then((photoSelectResult) => {
         console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));
-        this.videoPath = photoSelectResult.photoUris[0]
+        this.videoPath = photoSelectResult.photoUris[0] // 选择的视频路径
       }).catch((err: BusinessError) => {
       console.error('PhotoViewPicker.select failed with err: ' + JSON.stringify(err));
     });

@@ -1,5 +1,4 @@
 import { cameraPicker, camera } from '@kit.CameraKit'
-import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -20,7 +19,7 @@ struct CameraRecordPage {
       .then((pickerResult) => {
         console.info('the pick pickerResult is:' + JSON.stringify(pickerResult));
         this.message = `录像结果代码为${pickerResult.resultCode}，结果路径为${pickerResult.resultUri}`
-        this.videoPath = pickerResult.resultUri
+        this.videoPath = pickerResult.resultUri // 录制完成的视频文件路径
       }).catch((err: BusinessError) => {
       console.error('cameraPicker.pick failed with err: ' + JSON.stringify(err));
     });

@@ -1,5 +1,4 @@
 import { camera } from '@kit.CameraKit'
-import { common } from '@kit.AbilityKit';
 
 @Entry
 @Component

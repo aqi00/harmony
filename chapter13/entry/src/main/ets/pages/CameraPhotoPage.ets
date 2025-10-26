@@ -1,5 +1,4 @@
 import { cameraPicker, camera } from '@kit.CameraKit'
-import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
@@ -19,7 +18,7 @@ struct CameraPhotoPage {
       .then((pickerResult) => {
         console.info('the pick pickerResult is:' + JSON.stringify(pickerResult));
         this.message = `拍照结果代码为${pickerResult.resultCode}，结果路径为${pickerResult.resultUri}`
-        this.imagePath = pickerResult.resultUri
+        this.imagePath = pickerResult.resultUri // 拍摄完成的相片文件路径
       }).catch((err: BusinessError) => {
       console.error('cameraPicker.pick failed with err: ' + JSON.stringify(err));
     });

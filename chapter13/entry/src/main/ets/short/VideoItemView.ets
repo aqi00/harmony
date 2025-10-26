@@ -1,4 +1,3 @@
-import { promptAction } from '@kit.ArkUI';
 import { VideoInfo } from '../entity/VideoInfo';
 import { Constants } from '../constant/Constants';
 
@@ -6,6 +5,7 @@ import { Constants } from '../constant/Constants';
 export struct VideoItemView {
   promptAction = this.getUIContext().getPromptAction();
   @State info: VideoInfo | undefined = undefined; // 视频信息
+  @State isPraised: boolean = false; // 是否点赞
 
   build() {
     if (this.info) {
@@ -29,9 +29,9 @@ export struct VideoItemView {
             bottom:{ anchor: '__container__', align: VerticalAlign.Bottom},
           })
         Column() {
-          Image($r('app.media.icon_love')).width(50).height(50).margin(12)
+          Image(this.isPraised ? $r('app.media.icon_love_click') : $r('app.media.icon_love')).width(50).height(50).margin(12)
             .onClick(() => {
-              this.promptAction.showToast({message: '您已将该视频加入收藏'})
+              this.isPraised = !this.isPraised
             })
           Image($r('app.media.icon_comment')).width(50).height(50).margin(12)
             .onClick(() => {

@@ -1,4 +1,4 @@
-import { promptAction } from '@kit.ArkUI';
+
 import { common } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { abilityAccessCtrl, Permissions } from '@kit.AbilityKit'

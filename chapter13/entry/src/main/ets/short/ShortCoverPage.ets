@@ -1,4 +1,3 @@
-import { router } from '@kit.ArkUI';
 import { image } from '@kit.ImageKit';
 import { GlobalExtractor } from '../utils/GlobalExtractor';
 
@@ -18,13 +17,13 @@ struct ShortCoverPage {
   private coverPos = 0; // 封面位置
   private coverSeq = 0; // 封面序号
   private lastUrl: string = ''; // 上个页面的地址
-  @State pixelMap: PixelMap | undefined = undefined; // 像素图
   private frameCount = 0; // 封面帧的数量
   private extractCount = 0; // 解析帧的数量
   @State frameArray: FrameThumbnail[] = []; // 缩略图列表
   private tempArray: FrameThumbnail[] = []; // 临时图列表
   private scroller: Scroller = new Scroller(); // 滚动器
 
+  @State pixelMap: PixelMap | undefined = undefined; // 像素图
   private extractor: GlobalExtractor = GlobalExtractor.getInstance();
   aboutToAppear() {
     this.extractor.create() // 创建提取器
@@ -50,6 +49,27 @@ struct ShortCoverPage {
     }
   }
 
+  // 显示缩略图列表
+  showThumbnailList(videoPath: string) {
+    setTimeout(() => {
+      // 获取视频信息
+      this.extractor.getVideoInfo(this.videoPath, (fd, metadata) => {
+        let secondCount = Math.round(Number(metadata.duration)/1000)
+        this.frameCount = secondCount>16 ? 15 : secondCount // 提取15帧缩略图
+        for (let seq=0; seq<this.frameCount; seq++) {
+          let pos = seq
+          if (pos!=0 && secondCount>16) {
+            pos = secondCount/this.frameCount*seq
+          }
+          // 获取视频缩略图
+          this.extractor.getThumbnail(fd, metadata, pos, (pixelMap) => {
+            this.addThumbnail(seq, pos, pixelMap) // 添加缩略图
+          })
+        }
+      })
+    }, 100)
+  }
+
   onPageShow() {
     let params = this.router.getParams() as Record<string, Object>;
     this.coverPos = params?.['pos'] as number
@@ -58,23 +78,7 @@ struct ShortCoverPage {
     this.lastUrl = params?.['lastUrl'] as string
     console.info('coverPos='+this.coverPos+', coverSeq='+this.coverSeq)
     if (this.videoPath) {
-      setTimeout(() => {
-        // 获取视频信息
-        this.extractor.getVideoInfo(this.videoPath, (fd, metadata) => {
-          let secondCount = Math.round(Number(metadata.duration)/1000)
-          this.frameCount = secondCount>16 ? 15 : secondCount
-          for (let seq=0; seq<this.frameCount; seq++) {
-            let pos = seq
-            if (pos!=0 && secondCount>16) {
-              pos = secondCount/this.frameCount*seq
-            }
-            // 获取视频缩略图
-            this.extractor.getThumbnail(fd, metadata, pos, (pixelMap) => {
-              this.addThumbnail(seq, pos, pixelMap) // 添加缩略图
-            })
-          }
-        })
-      }, 100)
+      this.showThumbnailList(this.videoPath) // 显示缩略图列表
     }
   }
 

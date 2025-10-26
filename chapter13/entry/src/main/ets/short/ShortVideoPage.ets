@@ -1,4 +1,3 @@
-import { router } from '@kit.ArkUI';
 import { http } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { SwipeDataSource } from '../entity/SwipeDataSource';
@@ -16,9 +15,26 @@ struct ShortVideoPage {
   private statusArray: string[] = ['已取消下拉', '正在下拉，但未触发下拉刷新',
     '正在下拉，且已触发下拉刷新', '松手，正在刷新', '刷新完毕'];
   @State isRefreshing: boolean = false; // 是否正在刷新
+  @State videoList: Array<VideoInfo> = []; // 视频列表
+
   private swiperController: SwiperController = new SwiperController();
   @State dataSource: SwipeDataSource = new SwipeDataSource([]);
-  @State videoList: Array<VideoInfo> = []; // 视频列表
+
+  private sampleUrls: string[] = ['https://ptgl.fujian.gov.cn:8088/masvod/public/2018/04/17/20180417_162d3639356_r38_1200k.mp4',
+    'https://ptgl.fujian.gov.cn:8088/masvod/public/2019/04/15/20190415_16a1ef11c24_r38_1200k.mp4',
+    'https://ptgl.fujian.gov.cn:8088/masvod/public/2020/09/26/20200926_174c8f9e4b6_r38_1200k.mp4',
+    'https://ptgl.fujian.gov.cn:8088/masvod/public/2021/03/19/20210319_178498bcae9_r38.mp4',
+    'https://www.fujian.gov.cn/masvod/public/2022/07/15/20220715_18201603713_r38_1200k.mp4',
+    'https://www.fujian.gov.cn/masvod/public/2023/04/25/20230425_187b71018de_r38_1200k.mp4',
+    'https://video.zohi.tv/fs/transcode/20240520/8cc/355193-1716184798-transv.mp4']
+
+  onPageShow(): void {
+    for (let i=0; i<this.sampleUrls.length; i++) {
+      let videoInfo: VideoInfo = { date:`第${i+1}届数字中国峰会迎宾曲`, video:this.sampleUrls[i] }
+      this.videoList.push(videoInfo)
+    }
+    console.info('onPageShow count='+this.videoList.length)
+  }
 
   // 查询视频列表
   queryVideoList() {
@@ -61,17 +77,19 @@ struct ShortVideoPage {
   build() {
     Column() {
       Refresh({ refreshing: $$this.isRefreshing, promptText: '刷新中……' }) {
-        Swiper(this.swiperController) {
-          // ForEach(this.videoList, (item: VideoInfo) => {
-          //   VideoItemView({info: item}).width('100%').height('100%')
-          // }, (item: VideoInfo) => JSON.stringify(item))
-          if (this.videoList && this.videoList.length>0) {
-            // ForEach会主动检测数据源是否发生变化，而LazyForEach不会主动检测
-            LazyForEach(this.dataSource, (item: VideoInfo) => {
-              VideoItemView({info: item}).width('100%').height('100%')
-            })
-          }
+        Swiper() {
+          ForEach(this.videoList, (item: VideoInfo) => {
+            VideoItemView({info: item}).width('100%').height('100%')
+          }, (item: VideoInfo) => JSON.stringify(item))
         }
+        // Swiper(this.swiperController) {
+        //   if (this.videoList && this.videoList.length>0) {
+        //     // ForEach会主动检测数据源是否发生变化，而LazyForEach不会主动检测
+        //     LazyForEach(this.dataSource, (item: VideoInfo) => {
+        //       VideoItemView({info: item}).width('100%').height('100%')
+        //     })
+        //   }
+        // }
         .vertical(true) // 是否垂直方向。默认false表示水平方向
         .index(0) // 默认显示第几个组件
         .indicator(false) // 是否显示指示器

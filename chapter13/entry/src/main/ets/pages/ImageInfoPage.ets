@@ -8,7 +8,7 @@ import { fileIo } from '@kit.CoreFileKit';
 struct ImageInfoPage {
   @State message: string = ''; // 获取结果
   @State imagePath: string = ''; // 图片路径
-  private pixelFormatArray = ['未知格式', '？？格式', 'RGB_565格式', 'RGBA_8888格式',
+  private pixelFormatArray = ['未知格式', 'ARGB_8888格式', 'RGB_565格式', 'RGBA_8888格式',
     'BGRA_8888格式', 'RGB_888格式','ALPHA_8格式', 'RGBA_F16格式','NV21格式', 'NV12格式',];
   private alphaTypeArray = ['未知透明度', '图片不透明', 'RGB预乘alpha', 'RGB非预乘alpha'];
 

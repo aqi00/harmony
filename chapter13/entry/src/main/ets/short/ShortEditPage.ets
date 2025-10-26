@@ -1,7 +1,6 @@
 import { router } from '@kit.ArkUI';
-import { promptAction } from '@kit.ArkUI';
+
 import { BusinessError } from '@kit.BasicServicesKit';
-import { media } from '@kit.MediaKit';
 import { image } from '@kit.ImageKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
@@ -22,13 +21,13 @@ struct ShortEditPage {
   @State address: string = ''; // 拍摄地点
   @State label: string = ''; // 视频标签
   @State desc: string = ''; // 视频描述
-  @State pixelMap: PixelMap | undefined = undefined; // 像素图
   @State isUploading: boolean = false; // 是否正在上传
   private selectedDate: Date = new Date(); // 选择的日期
   private coverPos = 0; // 封面位置
   private coverSeq = 0; // 封面序号
   private imagePath: string =''; // 封面图路径
 
+  @State pixelMap: PixelMap | undefined = undefined; // 像素图
   private extractor: GlobalExtractor = GlobalExtractor.getInstance();
   onPageHide() {
     this.extractor.release() // 释放提取器
@@ -164,11 +163,11 @@ struct ShortEditPage {
     // 上传短视频
     this.upload((result: number, error: string) => {
       this.isUploading = false
-      if (result == 0) {
+      if (result == 0) { // 上传成功
         this.promptAction.showToast({message: '成功发布您的短视频'})
         this.router.clear();
         this.router.replaceUrl({ url: 'short/ShortVideoPage' }, router.RouterMode.Single)
-      } else {
+      } else { // 上传失败
         this.promptAction.showToast({message: '保存视频信息出错：'+error})
       }
     })

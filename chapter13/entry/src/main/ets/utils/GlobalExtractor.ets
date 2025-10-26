@@ -72,7 +72,7 @@ export class GlobalExtractor {
       let videoWidth = Number(metadata.videoWidth)
       let videoHeight = Number(metadata.videoHeight)
       let videoOrientation = Number(metadata.videoOrientation)
-      if (videoWidth && videoHeight && videoOrientation) {
+      if (videoWidth && videoHeight) {
         if ((videoOrientation+360)/90%2 == 1) {
           videoWidth = Number(metadata.videoHeight)
           videoHeight = Number(metadata.videoWidth)
@@ -81,7 +81,7 @@ export class GlobalExtractor {
         let ratio = Math.round(max/300)
         w = videoWidth/ratio
         h = videoHeight/ratio
-        console.info(`videoWidth=${videoWidth}, realHeight=${videoHeight}`)
+        console.info(`videoWidth=${videoWidth}, videoHeight=${videoHeight}`)
         console.info(`max=${max}, ratio=${ratio}`)
       }
       console.info(`width=${w}, height=${h}`)
