@@ -1,5 +1,3 @@
-import { router } from '@kit.ArkUI';
-
 @Component
 export struct GroupListView {
   router = this.getUIContext().getRouter();

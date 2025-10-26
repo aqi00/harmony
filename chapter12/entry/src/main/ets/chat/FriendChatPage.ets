@@ -1,5 +1,3 @@
-import { router } from '@kit.ArkUI';
-import { promptAction } from '@kit.ArkUI';
 import { ChatUtil } from '../utils/ChatUtil';
 import { client_socket } from '@ohos/socketio';
 import { GlobalThis } from './GlobalThis';

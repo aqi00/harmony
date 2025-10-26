@@ -25,7 +25,7 @@ struct SocketioTextPage {
     });
     this.client.set_reconnect_listener(() => {
       console.info('set_reconnect_listener')
-      this.result = '尝试连接服务器……'
+      this.result = '尝试重连服务器……'
     });
     this.client.set_socket_open_listener((nsp: string) => {
       console.info('set_socket_open_listener: '+nsp)
@@ -43,9 +43,9 @@ struct SocketioTextPage {
 
   aboutToDisappear() {
     this.client.off('receive_text') // 取消接收文本消息的监听
-    this.client.close();
+    this.client.close(); // 关闭客户端连接
     //this.client.socket_close(); // 注意：这里不可调用socket_close，否则app会崩溃
-    this.client.clear_socket_listeners();
+    this.client.clear_socket_listeners(); // 清除所有的 socktio 事件监听
   }
 
   build() {
@@ -57,7 +57,7 @@ struct SocketioTextPage {
       Button('发送文本消息').width('100%').fontSize(18)
         .onClick(() => {
           console.info('begin send: '+this.content)
-          this.client.emit('send_text', this.content);
+          this.client.emit('send_text', this.content); // 向服务端的send_text接口发送消息
         })
       Text(this.result).width('100%').fontSize(18).padding(5)
     }

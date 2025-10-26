@@ -1,5 +1,3 @@
-import { router } from '@kit.ArkUI';
-import { promptAction } from '@kit.ArkUI';
 import { ChatUtil } from '../utils/ChatUtil';
 import { client_socket } from '@ohos/socketio';
 import { GlobalThis } from './GlobalThis';
@@ -157,7 +155,7 @@ struct GroupChatPage {
     this.client?.off('person_out_group') // 取消接收成员退群通知
     this.client?.off('receive_group_message') // 取消接收群消息
     this.client?.off('receive_group_image') // 取消接收群图片
-    this.client?.off('heart_beat') // 取消接收心跳消息
+    //this.client?.off('heart_beat') // 取消接收心跳消息
     emitter.off('socket_status')
   }
 

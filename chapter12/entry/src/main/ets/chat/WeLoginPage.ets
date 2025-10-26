@@ -1,5 +1,3 @@
-import { router } from '@kit.ArkUI';
-import { promptAction } from '@kit.ArkUI';
 import { client_socket } from '@ohos/socketio';
 import { GlobalThis } from './GlobalThis';
 import { Constants } from '../constant/Constants'
@@ -55,7 +53,7 @@ struct WeLoginPage {
       emitter.emit('socket_status', eventData)
     });
     this.client?.connect(Constants.SOCKET_CHAT_URL) // socket.io服务端地址
-    this.client?.opened()
+    //this.client?.opened()
   }
 
   aboutToDisappear() {
@@ -68,7 +66,7 @@ struct WeLoginPage {
     Column() {
       Blank().height('5%')
       Image($r('app.media.wechat'))
-        .width(150).height(150).objectFit(ImageFit.Contain)
+        .width(250).height(200).objectFit(ImageFit.Contain)
       Text('请输入您的昵称').fontSize(18).margin(15)
       TextInput({text: $$this.nickName, placeholder: '请输入昵称'})
         .width('100%').height(40)

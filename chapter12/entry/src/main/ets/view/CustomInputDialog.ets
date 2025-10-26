@@ -1,6 +1,6 @@
 @CustomDialog
 export struct CustomInputDialog {
-  @State nickName: string = '';
+  @State nickName: string = ''; // 昵称
   // @CustomDialog组件必须声明CustomDialogController属性
   private dialogController?: CustomDialogController;
   // 取消接口，待实例化实现
@@ -18,12 +18,12 @@ export struct CustomInputDialog {
         Button('取消').fontSize(18).layoutWeight(1).margin(5)
           .backgroundColor(Color.Gray)
           .onClick(() => {
-            this.dialogController?.close()
+            this.dialogController?.close() // 关闭对话框
             this.cancel() // 响应取消事件
           })
         Button('确定').fontSize(18).layoutWeight(1).margin(5)
           .onClick(() => {
-            this.dialogController?.close()
+            this.dialogController?.close() // 关闭对话框
             this.confirm(this.nickName) // 响应确认事件
           })
       }.padding(10).margin({bottom:10})

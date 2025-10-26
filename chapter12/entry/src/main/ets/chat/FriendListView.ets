@@ -1,4 +1,3 @@
-import { router } from '@kit.ArkUI';
 import { ChatUtil } from '../utils/ChatUtil';
 import { client_socket } from '@ohos/socketio';
 import { GlobalThis } from './GlobalThis';
@@ -85,9 +84,9 @@ export struct FriendListView {
         })
       }
       .listDirection(Axis.Vertical)
-      .scrollBar(BarState.Off)
+      //.scrollBar(BarState.Off)
       .divider({ strokeWidth: 0.5, color: 0xcccccc, startMargin: 50, endMargin: 0 })
-      .edgeEffect(EdgeEffect.Fade)
+      //.edgeEffect(EdgeEffect.Fade)
       .width('100%').layoutWeight(1).padding(5)
     }
     .width('100%').height('100%').padding(5)

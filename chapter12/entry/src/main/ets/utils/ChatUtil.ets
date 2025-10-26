@@ -1,4 +1,4 @@
-import cryptoFramework from '@ohos.security.cryptoFramework'
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
 export class ChatUtil {
@@ -19,9 +19,10 @@ export class ChatUtil {
     let md = cryptoFramework.createMd('MD5');
     md.update({ data: new Uint8Array(buffer.from(nickName, 'utf-8').buffer) }, (err,) => {
       md.digest((err, digestOutput) => {
-        let md5str = Array.from(digestOutput.data).map(byte => byte.toString(16).padStart(2, '0')).join('').toUpperCase();
-        console.info('getPortraitByName: MD result: ' + md5str);
-        let lastChar = md5str.charCodeAt(md5str.length-1)
+        //let mdstr = Array.from(digestOutput.data).map(byte => byte.toString(16).padStart(2, '0')).join('').toUpperCase();
+        let mdstr = buffer.from(digestOutput.data).toString('hex').toUpperCase();
+        console.info('getPortraitByName: MD result: ' + mdstr);
+        let lastChar = mdstr.charCodeAt(mdstr.length-1)
         console.info('lastChar='+lastChar+', A='+'A'.charCodeAt(0)+', 0='+'0'.charCodeAt(0));
         let pos = lastChar>='A'.charCodeAt(0) ? lastChar-'A'.charCodeAt(0)+10 : lastChar-'0'.charCodeAt(0)
         //pos = Math.floor(pos/2)

@@ -1,4 +1,3 @@
-import { router } from '@kit.ArkUI';
 import { FriendListView } from './FriendListView'
 import { GroupListView } from './GroupListView'
 import { MyInfoView } from './MyInfoView'
