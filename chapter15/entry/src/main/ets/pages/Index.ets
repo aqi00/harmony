@@ -48,10 +48,6 @@ struct Index {
           })
       }.padding({top: 3, bottom: 3})
       Row() {
-        Button('文档扫描').fontSize(16).layoutWeight(1)
-          .onClick(() => {
-            this.router.pushUrl({ url: 'pages/DocScannerPage' })
-          })
         Button('文字识别').fontSize(16).layoutWeight(1)
           .onClick(() => {
             this.router.pushUrl({ url: 'pages/TextRecognizePage' })

@@ -81,19 +81,19 @@ struct VoiceASRPage {
             this.writeAudio(this.pcmFile2) // 写入音频流
           })
       }.width('100%')
-      Button(this.buttonText).width('100%').fontSize(18).margin({top:5})
-        .onClick(async () => {
-          if (this.isRecognizing) {
-            await this.mFileCapturer.stop();
-            asrEngine.finish(this.sessionId) // 结束识别
-          } else {
-            this.generatedText = ''
-            this.startRecording() // 开始录音
-            this.promptAction.showToast({message: '开始识别语音，请对话筒说话'});
-          }
-          this.buttonText = this.isRecognizing ? '开始识别语音' : '停止识别语音'
-          this.isRecognizing = !this.isRecognizing
-        })
+      // Button(this.buttonText).width('100%').fontSize(18).margin({top:5})
+      //   .onClick(async () => {
+      //     if (this.isRecognizing) {
+      //       await this.mFileCapturer.stop();
+      //       asrEngine.finish(this.sessionId) // 结束识别
+      //     } else {
+      //       this.generatedText = ''
+      //       this.startRecording() // 开始录音
+      //       this.promptAction.showToast({message: '开始识别语音，请对话筒说话'});
+      //     }
+      //     this.buttonText = this.isRecognizing ? '开始识别语音' : '停止识别语音'
+      //     this.isRecognizing = !this.isRecognizing
+      //   })
     }
     .width('100%').height('100%')
   }
