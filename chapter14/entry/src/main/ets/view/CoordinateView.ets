@@ -99,8 +99,8 @@ export struct CoordinateView {
         this.getYpos(radius, angle, (radius - this.scaleLength) * this.borderRatio)
       )
     }
-    let left = radius - this.getSin(this.point.x) * radius * this.borderRatio
-    let top = radius - this.getSin(this.point.y) * radius * this.borderRatio
+    let left = radius + this.getSin(this.point.x) * radius * this.borderRatio
+    let top = radius + this.getSin(this.point.y) * radius * this.borderRatio
     // 在画布上绘制滚珠图标
     this.canvas.drawImage(ball, left - iconWidth/2, top - iconWidth/2, iconWidth, iconWidth);
   }

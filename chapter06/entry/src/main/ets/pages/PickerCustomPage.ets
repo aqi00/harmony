@@ -13,10 +13,12 @@ struct PickerCustomPage {
     alignment: DialogAlignment.Center // 对话框的对齐方式
   });
 
+  // 取消对话框
   cancel() {
     console.info('CustomInputDialog:cancel()')
   }
 
+  // 确认对话框
   confirm(nickName: string) {
     console.info('CustomInputDialog:confirm()')
     this.result = `您输入的昵称为：${nickName}`
