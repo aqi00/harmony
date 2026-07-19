@@ -1,0 +1,14 @@
+{
+  "module": {
+    "name": "pinyin4js",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "phone",
+      "tablet",
+      "2in1",
+      "wearable",
+      "car"
+    ]
+  }
+}

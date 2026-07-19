@@ -13,8 +13,20 @@
       "value": "chapter15"
     },
     {
+      "name": "microphone_reason",
+      "value": "麦克风权限"
+    },
+    {
       "name": "camera_reason",
       "value": "相机权限"
+    },
+    {
+      "name": "accurate_location_reason",
+      "value": "精确定位"
+    },
+    {
+      "name": "vague_location_reason",
+      "value": "模糊定位"
     }
   ]
 }

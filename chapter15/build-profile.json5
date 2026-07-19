@@ -38,6 +38,10 @@
           ]
         }
       ]
+    },
+    {
+      "name": "pinyin4js",
+      "srcPath": "./pinyin4js"
     }
   ]
 }

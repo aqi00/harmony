@@ -50,10 +50,34 @@
     ],
     "requestPermissions":[
       {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name" : "ohos.permission.MICROPHONE", // 麦克风权限
+        "reason": "$string:microphone_reason", // 申请原因
+        "usedScene": { // 使用场景
+          "when": "inuse" // 在使用时授权
+        }
+      },
+      {
         "name": "ohos.permission.CAMERA", // 相机权限
         "reason": "$string:camera_reason", // 申请原因
         "usedScene": { // 使用场景
           "when": "inuse" // 在使用时授权
+        }
+      },
+      {
+        "name" : "ohos.permission.LOCATION",
+        "reason": "$string:accurate_location_reason",
+        "usedScene": {
+          "when":"inuse"
+        }
+      },
+      {
+        "name" : "ohos.permission.APPROXIMATELY_LOCATION",
+        "reason": "$string:vague_location_reason",
+        "usedScene": {
+          "when":"inuse"
         }
       }
     ]

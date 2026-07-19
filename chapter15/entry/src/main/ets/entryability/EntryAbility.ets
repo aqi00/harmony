@@ -1,15 +1,17 @@
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
+import { GlobalThis } from '../utils/GlobalThis';
 
 import { Permissions } from '@kit.AbilityKit';
 import { PermissionUtil } from '../utils/PermissionUtil';
-const PERMISSIONS: Array<Permissions> = ['ohos.permission.CAMERA']
+const PERMISSIONS: Array<Permissions> = ['ohos.permission.MICROPHONE', 'ohos.permission.CAMERA', 'ohos.permission.LOCATION', 'ohos.permission.APPROXIMATELY_LOCATION']
 
 const DOMAIN = 0x0000;
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    GlobalThis.getInstance().setContext('context', this.context);
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
   }
@@ -28,7 +30,7 @@ export default class EntryAbility extends UIAbility {
         return;
       }
       hilog.info(DOMAIN, 'testTag', 'Succeeded in loading the content.');
-      PermissionUtil.checkPermissions(this.context, PERMISSIONS, '需要允许相机权限才能检测活体噢')
+      PermissionUtil.checkPermissions(this.context, PERMISSIONS, '需要允许麦克风和相机权限才能录音和录像、允许定位权限才能获取位置噢')
     });
   }
 

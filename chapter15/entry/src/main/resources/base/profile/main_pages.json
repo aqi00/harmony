@@ -11,6 +11,12 @@
     "pages/ImageClassifyPage",
     "pages/FaceDetectPage",
     "pages/FaceComparePage",
-    "pages/LivenessDetectPage"
+    "pages/LivenessDetectPage",
+    "robot/RobotPage",
+    "robot/PinyinPage",
+    "robot/WeatherPage",
+    "robot/QuestionEditPage",
+    "robot/QuestionListPage",
+    "robot/NumberTestPage"
   ]
 }

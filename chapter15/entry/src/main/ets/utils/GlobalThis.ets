@@ -1,6 +1,7 @@
 import { ValueType } from '@kit.ArkData';
 import { common } from '@kit.AbilityKit';
 import { UIContext } from '@kit.ArkUI';
+import { QuestionDB } from '../entity/QuestionDB';
 
 // 构造单例对象
 export class GlobalThis {
@@ -9,6 +10,7 @@ export class GlobalThis {
   private values: Record<string, ValueType> = {} // 键值对映射
   private context?: common.Context;
   private ui_context?: UIContext;
+  private questionDao?: QuestionDB;
 
   // 获取单例对象
   public static getInstance(): GlobalThis {
@@ -51,6 +53,16 @@ export class GlobalThis {
   // 更新指定键名的UI上下文
   public setUIContext(key: string, value: UIContext): void {
     this.ui_context = value;
+  }
+
+  // 获取指定数据库的实例
+  public getQuestionDB(): QuestionDB {
+    return this.questionDao!;
+  }
+
+  // 更新指定数据库的实例
+  public setQuestionDB(value: QuestionDB): void {
+    this.questionDao = value;
   }
 
   // 其他需要传递的内容依此扩展

@@ -1,5 +1,7 @@
 import { router } from '@kit.ArkUI';
+
 import { GlobalThis } from '../utils/GlobalThis';
+import { QuestionDB } from '../entity/QuestionDB';
 
 @Entry
 @Component
@@ -8,6 +10,7 @@ struct Index {
 
   aboutToAppear(): void {
     GlobalThis.getInstance().setUIContext('ui_context', this.getUIContext());
+    GlobalThis.getInstance().setQuestionDB(new QuestionDB());
   }
 
   build() {
@@ -72,6 +75,35 @@ struct Index {
         Button('活体检测').fontSize(16).layoutWeight(1)
           .onClick(() => {
             this.router.pushUrl({ url: 'pages/LivenessDetectPage' })
+          })
+      }.padding({top: 3, bottom: 3})
+
+      Text('15.4 实战项目-小小机器人')
+        .fontSize(18).margin({top:13, bottom:3})
+      Row() {
+        Button('中文转拼音').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'robot/PinyinPage' })
+          })
+        Button('天气预报').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'robot/WeatherPage' })
+          })
+      }.padding({top: 3, bottom: 3})
+      // Row() {
+      //   Button('中文数字测试').fontSize(16).layoutWeight(1)
+      //     .onClick(() => {
+      //       this.router.pushUrl({ url: 'robot/NumberTestPage' })
+      //     })
+      //   Button('问答列表').fontSize(16).layoutWeight(1)
+      //     .onClick(() => {
+      //       this.router.pushUrl({ url: 'robot/QuestionListPage' })
+      //     })
+      // }.padding({top: 3, bottom: 3})
+      Row() {
+        Button('你问我答之小小机器人').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'robot/RobotPage' })
           })
       }.padding({top: 3, bottom: 3})
 
