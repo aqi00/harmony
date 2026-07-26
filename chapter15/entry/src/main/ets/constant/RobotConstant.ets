@@ -33,12 +33,11 @@ export class RobotConstant {
   public static RECITE_PART: string = '背诵|朗诵|朗读|诵读|会背|你会|备送'
   public static RECITE_PATTERN: string = '.*(' + this.RECITE_PART + ').*'
 
-  // 把assets目录的样本音频复制到存储卡
+  // 把样本音频复制到存储卡
   public static copySampleFiles(context: common.UIAbilityContext) {
     for (let i = 0; i < RobotConstant.SAMPLE_FILES.length; i++) {
       let sampleFile = 'robot/' + RobotConstant.SAMPLE_FILES[i]
       let samplePath = util.format('%s/%s', context.resourceDir, sampleFile)
-      //AssetsUtil.Assets2Sd(context, sampleFile, samplePath)
       RobotConstant.SAMPLE_PATHS.push(samplePath)
     }
   }
@@ -50,10 +49,8 @@ export class RobotConstant {
     console.info('SystemQuestion templatePath=' + templatePath)
     if (fileIo.accessSync(templatePath)) {
       let systemList: QuestionInfo[] = []
-      //AssetsUtil.Assets2Sd(context, templateFile, templatePath)
       let content = fileIo.readTextSync(templatePath)
       console.info('SystemQuestion content.length=' + content.length)
-      //let content = FileUtil.openText(templatePath)
       let lines = content.split('\n')
       for (let line of lines) {
         let items = line.split(' ')

@@ -42,7 +42,6 @@ struct RobotPage {
 
   @State sessionId: string = '123456'; // 会话编号
   @State sessionId2: string = '1234567';
-  @State generatedText: string = '这里是识别文本';
   private mAudioCapturer = new AudioCapturer();
   @State question: string = '您好，很高兴为您服务。\n有什么可以帮您的呢O(∩_∩)O';
   @State answer: string = '我的回答在这里哦~\\(^o^)/~';
@@ -161,12 +160,13 @@ struct RobotPage {
     console.info('haveInit='+haveInit)
     if (!haveInit) {
       setTimeout(() => {
-        this.loadAllQuestion()
-        this.loadAllPoem()
-        RobotConstant.copySampleFiles(this.context)
+        this.initQuestionAndPoem() // 初始化所有问答和诗歌
         this.dataPref?.putSync('have_init', true)
       }, 20)
     }
+    setTimeout(() => {
+      this.loadQuestionAndPoem() // 加载所有问答和诗歌
+    }, 500)
     media.createAVPlayer((error: BusinessError, player: media.AVPlayer) => {
       if (player != null) {
         console.info('Succeeded in creating AVPlayer');
@@ -191,10 +191,9 @@ struct RobotPage {
 
   onPageShow(): void {
     this.startLocate()
-    this.generatedText = ''
     setTimeout(() => {
       let voicePath = RobotConstant.SAMPLE_PATHS[0]
-      this.playVoice(voicePath)
+      this.playVoice(voicePath) // 播放预设的音频文件
     }, 300)
   }
 
@@ -203,29 +202,28 @@ struct RobotPage {
     avPlayer.stop()
   }
 
-  // 加载所有问答
-  loadAllQuestion() {
-    RobotConstant.initSystemQuestion(this.context, this.questionDao); // 初始化系统设定的问题
-    setTimeout(() => {
-      let questionList = this.questionDao.queryAll(); // 加载所有问答信息
-      for (let item of questionList) {
-        if (item.type == 0) { // 系统问答
-          this.questionSystemMap.set(item.question, item);
-        } else { // 用户问答
-          this.questionCustomMap.set(item.question, item);
-        }
-      }
-      console.info('SystemMap.length=' + this.questionSystemMap.size + ',CustomMap.length=' + this.questionCustomMap.size);
-    }, 500)
+  // 初始化所有问答和诗歌
+  initQuestionAndPoem() {
+    // 初始化系统设定的问题
+    RobotConstant.initSystemQuestion(this.context, this.questionDao)
+    // 初始化古诗数据
+    RobotConstant.initPoetryData(this.context, this.poemDao)
+    RobotConstant.copySampleFiles(this.context)
   }
 
-  // 加载所有诗歌
-  loadAllPoem() {
-    RobotConstant.initPoetryData(this.context, this.poemDao); // 初始化古诗数据
-    setTimeout(() => {
-      this.poemList = this.poemDao.queryAll(); // 加载所有诗歌信息
-      console.info('poemList.length=' + this.poemList.length);
-    }, 500)
+  // 加载所有问答和诗歌
+  loadQuestionAndPoem() {
+    let questionList = this.questionDao.queryAll(); // 加载所有问答信息
+    for (let item of questionList) {
+      if (item.type == 0) { // 系统问答
+        this.questionSystemMap.set(item.question, item);
+      } else { // 用户问答
+        this.questionCustomMap.set(item.question, item);
+      }
+    }
+    console.info('SystemMap.length=' + this.questionSystemMap.size + ',CustomMap.length=' + this.questionCustomMap.size);
+    this.poemList = this.poemDao.queryAll(); // 加载所有诗歌信息
+    console.info('poemList.length=' + this.poemList.length);
   }
 
   build() {
@@ -396,6 +394,7 @@ struct RobotPage {
       })
   }
 
+  // 开始聆听用户说话
   private startListeningForRecording() {
     let audioParam: speechRecognizer.AudioInfo = { audioType: 'pcm', sampleRate: 16000, soundChannel: 1, sampleBit: 16 }
     let extraParam: Record<string, Object> = {
@@ -415,14 +414,13 @@ struct RobotPage {
 
   // 麦克风语音转文本
   private async startRecording() {
-    this.generatedText = ''
     this.setListener(() => {
       setTimeout(() => {
         this.startRecording() // 开始录音
       }, 300)
     });
     try {
-      this.startListeningForRecording();
+      this.startListeningForRecording(); // 开始聆听用户说话
       // 录音获取音频
       let data: ArrayBuffer;
       console.info('create capture success');
@@ -436,9 +434,9 @@ struct RobotPage {
         asrEngine.writeAudio(this.sessionId2, uint8Array);
       });
     } catch (err) {
-      this.generatedText = `Message: ${err.message}.`;
+      console.error('startRecording: error=' + JSON.stringify(err));
     }
-  };
+  }
 
   // 设置语音识别监听器
   private setListener(callback: () => void) {
@@ -446,7 +444,6 @@ struct RobotPage {
     let listener: speechRecognizer.RecognitionListener = {
       // 开始识别成功回调
       onStart: (sessionId: string, eventMessage: string) => {
-        this.generatedText = '';
         console.info('listener onStart sessionId: ' + sessionId + ', eventMessage: ' + eventMessage);
       },
       // 事件回调
@@ -459,13 +456,11 @@ struct RobotPage {
         let isLast: boolean = res.isLast;
         let result: string = res.result;
         console.info('listener onResult: ' + 'sessionId: ' + sessionId + ' isFinal: ' + isFinal + ' isLast: ' + isLast + ' result: ' + result);
-        //this.generatedText = res.result; // 识别的结果文本
-        this.generatedText = '您的问题是：' + res.result; // 识别的结果文本
         this.question = '您的问题是：' + res.result; // 识别的结果文本
-        if (result!=undefined && result!='') {
+        if (res.result!=undefined && res.result!='') {
           this.checkRecognize(res.isFinal, res.result)
         } else {
-          callback()
+          callback() // 未识别到文本，继续监听
         }
       },
       // 识别完成回调
@@ -487,6 +482,7 @@ struct RobotPage {
   }
 
   private poemPos: number = -1; // 诗歌在列表中的位置
+  // 检查已识别的文本是否为已设定的问题
   checkRecognize(isEnd: boolean, result: string) {
     if (!isEnd) {
       return
@@ -534,7 +530,7 @@ struct RobotPage {
     }
     this.answer = '我的回答是：'+RobotConstant.SYSTEM_ANSWERS[6]
     let voicePath = RobotConstant.SAMPLE_PATHS[6]
-    this.playVoice(voicePath)
+    this.playVoice(voicePath) // 播放预设的音频文件
   }
 
   // 朗读诗歌
@@ -563,9 +559,8 @@ struct RobotPage {
     this.answer = '我的回答是：'+answerText
     let voicePath = voiceSeq==-1 ? '' : RobotConstant.SAMPLE_PATHS[voiceSeq];
     // console.info('voiceSeq='+voiceSeq+',answerText='+answerText+',voicePath='+voicePath);
-    // 启动在线合成语音的线程
     if (voiceSeq >= 0) {
-      this.playVoice(voicePath)
+      this.playVoice(voicePath) // 播放预设的音频文件
     } else {
       this.speakText(answerText)
     }
@@ -576,7 +571,6 @@ struct RobotPage {
     let answerText = questionInfo.answer;
     console.info('answerCustomQuestion answer=' + answerText);
     this.answer = '我的回答是：'+answerText
-    // 启动在线合成语音的线程
     this.speakText(answerText) // 朗读答案
   }
 
