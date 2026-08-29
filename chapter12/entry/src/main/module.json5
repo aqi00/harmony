@@ -51,6 +51,9 @@
     "requestPermissions":[
       {
         "name" : "ohos.permission.INTERNET" // 网络访问权限
+      },
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO" // 获取网络信息权限
       }
     ]
   }

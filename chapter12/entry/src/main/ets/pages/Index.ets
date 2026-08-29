@@ -78,6 +78,13 @@ struct Index {
           })
       }.padding({top: 3, bottom: 3})
 
+      Row() {
+        Button('JS桥接原生-JSBridge').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'pages/WebBridgePage' })
+          })
+      }.padding({top: 3, bottom: 3})
+
       Text('12.5 实战项目：多人聊天')
         .fontSize(18).margin({top:13, bottom:3})
       Row() {

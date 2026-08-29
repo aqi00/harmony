@@ -46,6 +46,10 @@
     {
       "name": "axios",
       "srcPath": "./axios"
+    },
+    {
+      "name": "jsbridge",
+      "srcPath": "./jsbridge"
     }
   ]
 }

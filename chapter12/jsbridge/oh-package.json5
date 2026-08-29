@@ -1,0 +1,22 @@
+{
+  "name": "@aqi00/jsbridge",
+  "keywords": [
+    "JavaScript",
+    "鸿蒙",
+    "HarmonyOS",
+    "Android",
+    "iOS",
+    "WebView",
+    "JavascriptBridge",
+  ],
+  "author": "aqi00",
+  "description": "HarmonyOS native and JS interaction, WebViewJavascriptBridge.",
+  "type": "module",
+  "version": "1.0.0",
+  "homepage": "https://gitee.com/aqi00/harmony",
+  "repository": "https://gitee.com/aqi00/harmony.git",
+  "main": "Index.ets",
+  "license": "MIT License",
+  "dependencies": {
+  }
+}

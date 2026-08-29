@@ -16,6 +16,7 @@
     "chat/WeLoginPage",
     "chat/WeChatPage",
     "chat/GroupChatPage",
-    "chat/FriendChatPage"
+    "chat/FriendChatPage",
+    "pages/WebBridgePage"
   ]
 }
