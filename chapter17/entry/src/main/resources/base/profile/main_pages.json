@@ -1,0 +1,11 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/PdfReaderPage",
+    "pages/PdfManagerPage",
+    "pages/EpubReaderPage",
+    "pages/MobiReaderPage",
+    "pages/Azw3ReaderPage",
+    "pages/DjvuReaderPage"
+  ]
+}

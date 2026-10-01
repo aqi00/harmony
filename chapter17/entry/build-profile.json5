@@ -1,0 +1,47 @@
+{
+  "apiType": "stageMode",
+  "buildOption": {
+    "resOptions": {
+      "copyCodeResource": {
+        "enable": false
+      },
+    },
+    "sourceOption": {
+      "workers": [
+        "./src/main/ets/reader/DjvuWorker.ets"
+      ]
+    },
+    "externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "",
+      "cppFlags": "-DHAVE_CONFIG_H -DTHREADMODEL=NOTHREADS -DDEBUGLVL=0",
+      "abiFilters": [ "arm64-v8a" ]
+    }
+  },
+  "buildOptionSet": [
+    {
+      "name": "release",
+      "externalNativeOptions": {
+        "cppFlags": "-DHAVE_CONFIG_H -DTHREADMODEL=NOTHREADS -DDEBUGLVL=0 -O3"
+      },
+      "arkOptions": {
+        "obfuscation": {
+          "ruleOptions": {
+            "enable": false,
+            "files": [
+              "./obfuscation-rules.txt"
+            ]
+          }
+        }
+      }
+    },
+  ],
+  "targets": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "ohosTest",
+    }
+  ]
+}
