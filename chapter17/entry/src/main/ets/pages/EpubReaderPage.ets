@@ -98,7 +98,7 @@ struct EpubReaderPage {
         }).visibility(this.beginRead?Visibility.Visible:Visibility.Hidden)
         if (!this.beginRead) {
           Column() {
-            Text(this.bookTitle).width('100%').fontSize(25).textAlign(TextAlign.Center)
+            Text(this.bookTitle).width('100%').fontSize(20).textAlign(TextAlign.Center)
             Image(this.pixelMap).width('100%').layoutWeight(1).objectFit(ImageFit.Contain)
             Button('开始阅读').width('100%').fontSize(17)
               .onClick(() => {

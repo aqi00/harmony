@@ -40,13 +40,14 @@ struct PdfReaderPage {
 
   build() {
     Column() {
+      Text('左右滑动翻动PDF页面').width('100%').fontSize(20).textAlign(TextAlign.Center).padding(10)
       PdfView({
         controller: this.controller,
         // pageLayout: pdfService.PageLayout.LAYOUT_SINGLE, // 默认LAYOUT_SINGLE
         isContinuous: false, // 默认true
         // showScroll: true, // 默认true
         pageFit: pdfService.PageFit.FIT_WIDTH, // 默认FIT_NONE
-      }).width('100%')
+      }).width('100%').layoutWeight(1)
     }
     .width('100%').height('100%')
   }

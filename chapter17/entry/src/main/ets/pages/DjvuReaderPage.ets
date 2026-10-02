@@ -287,7 +287,7 @@ struct DjvuReaderPage {
       // 底部页码指示（对应 Android PagerTabStrip "第N页"）
       if (this.pageCount > 0 && !this.isLoading) {
         Text(`第 ${this.currentIndex + 1} / ${this.pageCount} 页`)
-          .fontSize(14)
+          .fontSize(17)
           .fontColor('#FF666666')
           .width('100%')
           .textAlign(TextAlign.Center)
