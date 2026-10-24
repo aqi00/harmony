@@ -31,8 +31,9 @@ export class FileUtil {
   /** 递归创建目录（已存在则跳过）。 */
   public static ensureDir(path: string) {
     try {
-      fileIo.accessSync(path);
-      return;
+      if (fileIo.accessSync(path)) {
+        return;
+      }
     } catch (e) {
       // not exist, create
     }

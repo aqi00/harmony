@@ -6,6 +6,7 @@
     "pages/EpubReaderPage",
     "pages/MobiReaderPage",
     "pages/Azw3ReaderPage",
-    "pages/DjvuReaderPage"
+    "pages/DjvuReaderPage",
+    "pages/RtfReaderPage"
   ]
 }
