@@ -90,23 +90,22 @@ struct RtfReaderPage {
   build() {
     Column() {
       // 按钮栏（对应 activity_main.xml 的 buttonOpen / buttonTextRtf / buttonImageRtf）
-      Row({ space: 8 }) {
+      Row({ space: 5 }) {
         Button('打开RTF文件')
-          .fontSize(14)
+          .fontSize(17)
           .onClick(() => {
             this.openFile();
           });
         Button('文本RTF')
           .layoutWeight(1)
-          .fontSize(14)
+          .fontSize(17)
           .onClick(() => this.openSample(SAMPLE_TEXT_RTF));
         Button('图文RTF')
           .layoutWeight(1)
-          .fontSize(14)
+          .fontSize(17)
           .onClick(() => this.openSample(SAMPLE_IMAGE_RTF));
       }
-      .width('100%')
-      .padding({ left: 16, right: 16, top: 8, bottom: 8 })
+      .margin(5) // 如果设置了.width('100%')，那么水平方向的margin就不会奏效
       .backgroundColor('#FFF5F5F5');
 
       // 内容区（对应 Android WebView）

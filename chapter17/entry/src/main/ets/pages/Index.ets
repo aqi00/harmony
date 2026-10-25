@@ -56,6 +56,13 @@ struct Index {
           })
       }.padding({top: 3, bottom: 3})
 
+      Row() {
+        Button('DOCX阅读器').fontSize(16).layoutWeight(1)
+          .onClick(() => {
+            this.router.pushUrl({ url: 'pages/DocxReaderPage' })
+          })
+      }.padding({top: 3, bottom: 3})
+
     }
     .width('100%').height('100%')
   }
