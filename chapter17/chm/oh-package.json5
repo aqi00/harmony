@@ -1,0 +1,11 @@
+{
+  "name": "chm",
+  "version": "1.0.0",
+  "description": "CHM 文件解析与阅读模块（HAR）",
+  "main": "./src/main/ets/Index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "libchmcore.so": "file:./src/main/cpp/types/libchmcore"
+  }
+}

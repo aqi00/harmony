@@ -38,6 +38,15 @@
           ]
         }
       ]
+    },
+    {
+      "name": "chm",
+      "srcPath": "./chm",
+      "targets": [
+        {
+          "name": "default"
+        }
+      ]
     }
   ]
 }
